@@ -58,19 +58,23 @@ public class Deck{
     }
 
     public void shuffleDeck(int numShuffle){
-
-        for(int k = 0; k < numShuffle; k++ ){
-            List<Card> list1 = cards.subList(0,26);
-            List<Card> list2 = cards.subList(26,52);
-            List<Card> shuffledDeck = new ArrayList<Card>();
-
-            for(int i = 0; i < list1.size(); i++){
-                shuffledDeck.add(list1.get(i));
-                shuffledDeck.add(list2.get(i));
-            }
-
-            cards = shuffledDeck;
+        for (int k = 0; k < numShuffle; k++){
+            Collections.shuffle(cards);
         }
+
+//        PERFECT SHUFFLE
+//        for(int k = 0; k < numShuffle; k++ ){
+//            List<Card> list1 = cards.subList(0,26);
+//            List<Card> list2 = cards.subList(26,52);
+//            List<Card> shuffledDeck = new ArrayList<Card>();
+//
+//            for(int i = 0; i < list1.size(); i++){
+//                shuffledDeck.add(list1.get(i));
+//                shuffledDeck.add(list2.get(i));
+//            }
+//
+//            cards = shuffledDeck;
+//        }
     }
 
     public void dealCards(List<Player> players) {

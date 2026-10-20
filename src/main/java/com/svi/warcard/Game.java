@@ -2,7 +2,6 @@ package com.svi.warcard;
 import java.util.*;
 
 public class Game {
-    private boolean isGameOver = false;
     private Deck deck;
     private List<Player> players;
     private Scanner kbd;
