@@ -53,17 +53,17 @@ public class Game {
 
         while(!isValid){
             try{
-                System.out.print("Enter number of players: ");
+                System.out.print("\nEnter number of players (2-8): ");
                 playerCount = Integer.parseInt(kbd.nextLine());
                 if(playerCount < 2 || playerCount > 8) {
-                    System.out.println("Only 2-8 players are allowed to play. Kindly re-enter a number from this range.\n");
+                    System.out.println("Only 2-8 players are allowed to play. Kindly re-enter a number from this range.");
                 } else {
-                    System.out.println("There will be " + playerCount + " players in the game.\n");
+                    System.out.println("There will be " + playerCount + " players in the game.");
                     isValid = true;
                     return playerCount;
                 }
             } catch(NumberFormatException nfe){
-                System.out.println("Make sure to enter a number.\n");
+                System.out.println("Make sure to enter a number.");
             }
 
         }
@@ -77,17 +77,19 @@ public class Game {
 
         while(!isValid){
             try{
-                System.out.print("Enter number of shuffles: ");
+                System.out.print("\nEnter number of shuffles (1-100): ");
                 shuffleCount = Integer.parseInt(kbd.nextLine());
                 if(shuffleCount <= 0) {
-                    System.out.println("There must be at least 1 shuffle. Kindly re-enter a number greater than 0.\n");
+                    System.out.println("There must be at least 1 shuffle. Kindly re-enter a number greater than 0.");
+                } else if (shuffleCount > 100) {
+                    System.out.println("Max of 100 shuffles only. Kindly re-enter a number from 1 to 100 only.");
                 } else {
-                    System.out.println("There will be " + shuffleCount + " shuffles.\n");
+                    System.out.println("There will be " + shuffleCount + " shuffles.");
                     isValid = true;
                     return shuffleCount;
                 }
             } catch(NumberFormatException nfe){
-                System.out.println("Make sure to enter a number.\n");
+                System.out.println("Make sure to enter a number.");
             }
 
         }
