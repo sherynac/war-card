@@ -3,8 +3,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Round {
-    private List<Card> pot = new ArrayList<Card>();
-    private int roundNum;
+    private final List<Card> pot = new ArrayList<>();
+    private final int roundNum;
     private Card highestCard;
 
     public Round(int roundNum){
@@ -30,13 +30,35 @@ public class Round {
     }
 
     public void collectPot(Player roundWinner){
+
         pot.remove(highestCard);
         pot.addFirst(highestCard);
+
+        // SHOW ONLY COLLECTED CARDS
+        System.out.println("\nP" + roundWinner.getNumber() + " wins Round #" + roundNum);
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("Collected Cards (").append(pot.size()).append(" cards): ");
+
+        for (int i = 0; i < pot.size(); i++) {
+            sb.append(pot.get(i));
+
+            if ((i + 1) % 5 == 0 || i == pot.size() - 1) {
+                sb.append("\n");
+            } else {
+                sb.append(", ");
+            }
+        }
+
+        System.out.println(sb);
+
         roundWinner.addPot(pot);
 
-        pot.clear();
-        System.out.println("\nP" + roundWinner.getNumber() + " wins Round #" + roundNum);
-        System.out.println(roundWinner);
+//        pot.clear();
+
+        // SHOW ENTIRE PLAYER DECK
+//        System.out.println("\nP" + roundWinner.getNumber() + " wins Round #" + roundNum);
+//        System.out.println(roundWinner);
 
     }
 

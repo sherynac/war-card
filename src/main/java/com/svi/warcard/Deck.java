@@ -6,7 +6,7 @@ public class Deck{
     List<Card> cards;
 
     public Deck (){
-        this.cards = new ArrayList<Card>();
+        this.cards = new ArrayList<>();
     }
 
     public boolean readDeck() {
@@ -58,23 +58,23 @@ public class Deck{
     }
 
     public void shuffleDeck(int numShuffle){
-        for (int k = 0; k < numShuffle; k++){
-            Collections.shuffle(cards);
-        }
+//        for (int k = 0; k < numShuffle; k++){
+//            Collections.shuffle(cards);
+//        }
 
 //        PERFECT SHUFFLE
-//        for(int k = 0; k < numShuffle; k++ ){
-//            List<Card> list1 = cards.subList(0,26);
-//            List<Card> list2 = cards.subList(26,52);
-//            List<Card> shuffledDeck = new ArrayList<Card>();
-//
-//            for(int i = 0; i < list1.size(); i++){
-//                shuffledDeck.add(list1.get(i));
-//                shuffledDeck.add(list2.get(i));
-//            }
-//
-//            cards = shuffledDeck;
-//        }
+        for(int k = 0; k < numShuffle; k++ ){
+            List<Card> list1 = cards.subList(0,26);
+            List<Card> list2 = cards.subList(26,52);
+            List<Card> shuffledDeck = new ArrayList<>();
+
+            for(int i = 0; i < list1.size(); i++){
+                shuffledDeck.add(list1.get(i));
+                shuffledDeck.add(list2.get(i));
+            }
+
+            cards = shuffledDeck;
+        }
     }
 
     public void dealCards(List<Player> players) {
@@ -83,10 +83,9 @@ public class Deck{
         System.out.println("CURRENT SIZE: " + cards.size());
 
         for (int i = 0; i < numPerPlayer; i++) {
-            for (int j = 0; j < players.size(); j++) {
-                Card card = cards.remove(0);
-                players.get(j).addToCards(card);
-
+            for (Player player : players) {
+                Card card = cards.removeFirst();
+                player.addToCards(card);
             }
         }
 
@@ -98,13 +97,13 @@ public class Deck{
 
 
     public String toString(){
-        String deckString = "";
+        StringBuilder deckString = new StringBuilder();
         for(int i = 0; i < cards.size(); i++){
-            deckString += cards.get(i);
+            deckString.append(cards.get(i));
             if(i != cards.size() - 1){
-                deckString += ", ";
+                deckString.append(", ");
             }
         }
-        return deckString;
+        return deckString.toString();
     }
 }

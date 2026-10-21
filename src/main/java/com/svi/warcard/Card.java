@@ -1,40 +1,28 @@
 package com.svi.warcard;
 
-public class Card implements Comparable<Card>{
-    private Rank rank;
-    private Suit suit;
-
-    public Card(Suit suit, Rank rank){
-        this.suit = suit;
-        this.rank = rank;
+public record Card(Rank rank, Suit suit) implements Comparable<Card> {
+    public Card(Suit suit, Rank rank) {
+        this(rank, suit);
     }
 
-    public Card (String input) {
+    public Card(String input) {
         String[] parts = input.split("-");
 
-        this.suit = Suit.fromSymbol(parts[0]);
-        this.rank = Rank.fromString(parts[1]);
+        this(Rank.fromString(parts[1]), Suit.fromSymbol(parts[0]));
     }
 
-    public Rank getRank(){
-        return rank;
-    }
-
-    public Suit getSuit(){
-        return suit;
-    }
     @Override
-    public int compareTo(Card otherCard){
-        int result = Integer.compare(this.rank.getValue(), otherCard.getRank().getValue());
+    public int compareTo(Card otherCard) {
+        int result = Integer.compare(this.rank.getValue(), otherCard.rank().getValue());
 
         if (result != 0) { // rank is > or <
             return result;
         }
 
-        return Integer.compare(this.suit.getValue(), otherCard.getSuit().getValue());
+        return Integer.compare(this.suit.getValue(), otherCard.suit().getValue());
     }
 
-    public String toString(){
+    public String toString() {
         return suit + "-" + ((rank.getValue() > 11) ? rank : rank.getValue());
     }
 }

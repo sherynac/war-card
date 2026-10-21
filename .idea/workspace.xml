@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="52f5090f-425a-45f6-82ca-c1ac239b66dc" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Round.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Round.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Enum" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3KwHu8TPiwC430LaWi70iAQEWxy" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Maven.war-card-game [clean].executor": "Run",
+    "Maven.war-card-game [package].executor": "Run",
+    "Maven.war-card-game [validate].executor": "Run",
+    "Maven.war-card-maven [clean].executor": "Run",
+    "Maven.war-card-maven [compile].executor": "Run",
+    "Maven.war-card-maven [package].executor": "Run",
+    "Maven.war-card-maven [test].executor": "Run",
+    "Maven.war-card-maven [verify].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/sheryn.cagulada/IdeaProjects/war-card-maven",
+    "node.js.detected.package.jshint": "true",
+    "node.js.selected.package.jshint": "",
+    "onboarding.tips.debug.path": "C:/Users/sheryn.cagulada/IdeaProjects/war-card-maven/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "MavenSettings"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.svi.warcard.WarCardMain" />
+      <module name="war-card-game" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-a203e0a19954-intellij.indexing.shared.core-IU-262.10968.63" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.10968.63" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="52f5090f-425a-45f6-82ca-c1ac239b66dc" name="Changes" comment="" />
+      <created>1792461944982</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1792461944982</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

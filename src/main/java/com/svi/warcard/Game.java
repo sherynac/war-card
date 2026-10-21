@@ -15,8 +15,9 @@ public class Game {
     public void run() {
         startGame();
         int roundNum = 1;
+        int maxRounds = 10000;
 
-        while (!isGameOver()){
+        while (!isGameOver() && roundNum <= maxRounds){
             Round round = new Round(roundNum);
             Player roundWinner = round.startRound(players);
             round.collectPot(roundWinner);
@@ -120,6 +121,11 @@ public class Game {
     }
 
     public void declareWinner(){
-        System.out.println("\n!! We have a winner !!");System.out.println("Congratulations, Player " + players.get(0).getNumber());
+        if (players.size() == 1){
+            System.out.println("\n!! We have a winner !!");System.out.println("Congratulations, Player " + players.get(0).getNumber());
+        } else {
+            System.out.println("!! Game ended in a DRAW !!");
+        }
+
     }
 }
