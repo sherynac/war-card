@@ -2,15 +2,15 @@ package com.svi.warcard;
 import java.io.*;
 import java.util.*;
 
-public class Deck{
+public class Dealer {
     List<Card> cards;
 
-    public Deck (){
+    public Dealer(){
         this.cards = new ArrayList<>();
     }
 
     public boolean readDeck() {
-        try (InputStream input = Deck.class.getClassLoader()
+        try (InputStream input = Dealer.class.getClassLoader()
                 .getResourceAsStream("input.txt")) {
 
             if (input == null) {
@@ -29,7 +29,6 @@ public class Deck{
 
                     while (st.hasMoreTokens()) {
                         Card card = new Card(st.nextToken().trim());
-                        System.out.println("ADDED CARD: " + card);
                         cards.add(card);
                     }
                 }
@@ -78,23 +77,19 @@ public class Deck{
     }
 
     public void dealCards(List<Player> players) {
-        int numPerPlayer = cards.size() / players.size();
 
         System.out.println("CURRENT SIZE: " + cards.size());
 
-        for (int i = 0; i < numPerPlayer; i++) {
+        while (!cards.isEmpty()) {
             for (Player player : players) {
+                if (cards.isEmpty()) {
+                    break;
+                }
                 Card card = cards.removeFirst();
                 player.addToCards(card);
             }
         }
-
-//        System.out.println("\nDISCARDED CARDS:");
-//        for (Card card : cards) {
-//            System.out.println(card);
-//        }
     }
-
 
     public String toString(){
         StringBuilder deckString = new StringBuilder();

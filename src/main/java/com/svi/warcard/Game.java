@@ -2,13 +2,13 @@ package com.svi.warcard;
 import java.util.*;
 
 public class Game {
-    private Deck deck;
+    private Dealer dealer;
     private List<Player> players;
     private Scanner kbd;
 
     public Game(Scanner kbd){
         players = new ArrayList<Player>();
-        deck = new Deck();
+        dealer = new Dealer();
         this.kbd = kbd;
     }
 
@@ -31,7 +31,7 @@ public class Game {
     public void startGame(){
         System.out.println("Welcome to War Card!\n");
 
-        if (deck.readDeck()) {
+        if (dealer.readDeck()) {
             System.out.println("Deck has been loaded successfully.\n");
         }
 
@@ -40,11 +40,11 @@ public class Game {
 
         int shuffleCount = inputshuffleCount();
 
-        System.out.println("CURRENT DECK: " + deck + "\n");
-        deck.shuffleDeck(shuffleCount);
-        System.out.println("SHUFFLED DECK: " + deck + "\n");
+        System.out.println("CURRENT DECK: " + dealer + "\n");
+        dealer.shuffleDeck(shuffleCount);
+        System.out.println("SHUFFLED DECK: " + dealer + "\n");
 
-        deck.dealCards(players);
+        dealer.dealCards(players);
     }
 
     public int inputPlayerCount(){
