@@ -77,9 +77,6 @@ public class Dealer {
     }
 
     public void dealCards(List<Player> players) {
-
-        System.out.println("CURRENT SIZE: " + cards.size());
-
         while (!cards.isEmpty()) {
             for (Player player : players) {
                 if (cards.isEmpty()) {
@@ -91,6 +88,10 @@ public class Dealer {
         }
     }
 
+
+    /**
+     * TODO: make readable
+     */
     public String toString(){
         StringBuilder deckString = new StringBuilder();
         for(int i = 0; i < cards.size(); i++){

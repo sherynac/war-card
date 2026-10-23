@@ -29,10 +29,10 @@ public class Game {
     }
 
     public void startGame(){
-        System.out.println("Welcome to War Card!\n");
+        System.out.println("\n" + "=== Welcome to War Card! ===");
 
         if (dealer.readDeck()) {
-            System.out.println("Deck has been loaded successfully.\n");
+            System.out.println("\nDeck has been loaded successfully.");
         }
 
         int playerCount = inputPlayerCount();
@@ -40,9 +40,9 @@ public class Game {
 
         int shuffleCount = inputshuffleCount();
 
-        System.out.println("CURRENT DECK: " + dealer + "\n");
+        System.out.println("\nCURRENT DECK: " + dealer);
         dealer.shuffleDeck(shuffleCount);
-        System.out.println("SHUFFLED DECK: " + dealer + "\n");
+        System.out.println("\nSHUFFLED DECK: " + dealer);
 
         dealer.dealCards(players);
     }
@@ -54,7 +54,7 @@ public class Game {
         while(!isValid){
             try{
                 System.out.print("\nEnter number of players (2-8): ");
-                playerCount = Integer.parseInt(kbd.nextLine());
+                playerCount = Integer.parseInt(kbd.nextLine().trim());
                 if(playerCount < 2 || playerCount > 8) {
                     System.out.println("Only 2-8 players are allowed to play. Kindly re-enter a number from this range.");
                 } else {
@@ -78,13 +78,17 @@ public class Game {
         while(!isValid){
             try{
                 System.out.print("\nEnter number of shuffles (1-100): ");
-                shuffleCount = Integer.parseInt(kbd.nextLine());
+                shuffleCount = Integer.parseInt(kbd.nextLine().trim());
                 if(shuffleCount <= 0) {
                     System.out.println("There must be at least 1 shuffle. Kindly re-enter a number greater than 0.");
                 } else if (shuffleCount > 100) {
                     System.out.println("Max of 100 shuffles only. Kindly re-enter a number from 1 to 100 only.");
                 } else {
-                    System.out.println("There will be " + shuffleCount + " shuffles.");
+                    if(shuffleCount == 1){
+                        System.out.println("There will be 1 shuffle.");
+                    } else {
+                        System.out.println("There will be " + shuffleCount + " shuffles.");
+                    }
                     isValid = true;
                     return shuffleCount;
                 }
@@ -107,7 +111,7 @@ public class Game {
     public void eliminatePlayers(){
         players.removeIf(player -> {
             if (player.getCardsOwned().isEmpty()) {
-                System.out.println("P" + player.getNumber() + " is eliminated");
+                System.out.println("\n> P" + player.getNumber() + " is eliminated <");
                 return true;
             }
             return false;

@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52f5090f-425a-45f6-82ca-c1ac239b66dc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/title.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Dealer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Dealer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Dealer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Round.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Round.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/svi/warcard/WarCardMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/svi/warcard/WarCardMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +66,11 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sheryn.cagulada\IdeaProjects\war-card-maven\src\main\resources" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.svi.warcard.WarCardMain" />

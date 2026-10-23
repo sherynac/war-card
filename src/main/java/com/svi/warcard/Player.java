@@ -44,7 +44,7 @@ public class Player{
         for (int i = 0; i < cardsOwned.size(); i++) {
             sb.append(cardsOwned.get(i));
 
-            if ((i + 1) % 5 == 0 || i == cardsOwned.size() - 1) {
+            if ((i + 1) % 5 == 0) {
                 sb.append("\n");
             } else {
                 sb.append(", ");

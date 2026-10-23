@@ -56,7 +56,7 @@ public class Round {
 
 
         // SHOW ENTIRE PLAYER DECK
-        System.out.println("\nP" + roundWinner.getNumber() + " wins Round #" + roundNum);
+        System.out.println("\n> P" + roundWinner.getNumber() + " wins Round #" + roundNum + " <");
         System.out.println(roundWinner);
 
     }
