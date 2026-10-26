@@ -6,7 +6,7 @@ public enum Suit {
     S(2),
     C(1);
 
-    private int value;
+    private final int value;
 
     Suit(int value) {
         this.value = value;

@@ -1,5 +1,3 @@
-
-
 package com.svi.warcard;
 
 public record Card(Suit suit, Rank rank) implements Comparable<Card> {
