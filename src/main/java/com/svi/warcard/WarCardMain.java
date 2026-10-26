@@ -7,52 +7,27 @@ import java.util.*;
 
 public class WarCardMain {
     public static void main(String[] args) {
-        boolean playAgain = true;
+        boolean willPlayAgain = true;
         Scanner kbd = new Scanner(System.in);
 
-        displayTitle();
-
-        while(playAgain) {
+        while(willPlayAgain) {
             Game game = new Game(kbd);
             game.run();
-            playAgain = willPlayAgain(kbd);
+            willPlayAgain = playAgain(kbd);
         }
+        kbd.close();
     }
 
-    public static void displayTitle(){
-        try (InputStream input = Dealer.class.getClassLoader()
-                .getResourceAsStream("title.txt")) {
-
-            if (input == null) {
-                System.out.println("Error reading file.");
-                System.out.println("Kindly ensure title.txt is included in the application.");
-            }
-
-            try (BufferedReader br = new BufferedReader(
-                    new InputStreamReader(input))) {
-
-                String line;
-
-                while ((line = br.readLine()) != null) {
-                    System.out.println(line);
-                }
-            }
-        } catch (IOException e) {
-            System.out.println("Error reading file.");
-            System.out.println("Kindly double check the text file and rerun the application.");
-        }
-    }
-
-    public static boolean willPlayAgain(Scanner kbd){
+    public static boolean playAgain(Scanner kbd){
         boolean isValid = false;
-        boolean playAgain = false;
+        boolean willPlayAgain = false;
 
         while(!isValid){
             System.out.print("\nPlay Again (y/n): ");
             String input = kbd.nextLine().trim();
             if (input.equalsIgnoreCase("y")) {
                 isValid = true;
-                playAgain = true;
+                willPlayAgain = true;
             } else if (input.equalsIgnoreCase("n")){
                 isValid = true;
                 System.out.println("\n!! Thank you for playing War Card !!");
@@ -60,9 +35,6 @@ public class WarCardMain {
                 System.out.println("\nMake sure entered value is only either 'y' or 'n'");
             }
         }
-
-        return playAgain;
+        return willPlayAgain;
     }
-
-
 }

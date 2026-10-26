@@ -1,13 +1,17 @@
 package com.svi.warcard;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.*;
 
 public class Game {
-    private Dealer dealer;
-    private List<Player> players;
-    private Scanner kbd;
+    private final Dealer dealer;
+    private final List<Player> players;
+    private final Scanner kbd;
 
     public Game(Scanner kbd){
-        players = new ArrayList<Player>();
+        players = new ArrayList<>();
         dealer = new Dealer();
         this.kbd = kbd;
     }
@@ -15,90 +19,105 @@ public class Game {
     public void run() {
         startGame();
         int roundNum = 1;
-        int maxRounds = 10000;
 
-        while (!isGameOver() && roundNum <= maxRounds){
+        while (!isGameOver()){
             Round round = new Round(roundNum);
             Player roundWinner = round.startRound(players);
             round.collectPot(roundWinner);
             eliminatePlayers();
             roundNum++;
         }
-
-        declareWinner();
     }
 
     public void startGame(){
-        System.out.println("\n" + "=== Welcome to War Card! ===");
+        displayTitle();
 
         if (dealer.readDeck()) {
             System.out.println("\nDeck has been loaded successfully.");
+        } else {
+            System.exit(0);
         }
 
         int playerCount = inputPlayerCount();
         createPlayers(playerCount);
 
-        int shuffleCount = inputshuffleCount();
-
-        System.out.println("\nCURRENT DECK: " + dealer);
+        int shuffleCount = inputShuffleCount();
+        System.out.println("\nDealer shows cards: \n" + dealer.showCards());
         dealer.shuffleDeck(shuffleCount);
-        System.out.println("\nSHUFFLED DECK: " + dealer);
+        System.out.println("\nDealer shuffled cards: \n" + dealer.showCards());
 
         dealer.dealCards(players);
     }
 
-    public int inputPlayerCount(){
-        boolean isValid = false;
-        int playerCount = 0;
+    public static void displayTitle(){
+        try (InputStream input = Dealer.class.getClassLoader()
+                .getResourceAsStream("title.txt")) {
 
-        while(!isValid){
+            if (input == null){
+                return;
+            }
+            try (BufferedReader br = new BufferedReader(
+                    new InputStreamReader(input))) {
+
+                String line;
+
+                while ((line = br.readLine()) != null) {
+                    System.out.println(line);
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Skipping Game Logo...");
+        } finally {
+            System.out.println("\n=== Welcome to War Card! ===");
+        }
+    }
+
+    public int inputPlayerCount(){
+        int playerCount;
+
+        while(true){
             try{
                 System.out.print("\nEnter number of players (2-8): ");
                 playerCount = Integer.parseInt(kbd.nextLine().trim());
                 if(playerCount < 2 || playerCount > 8) {
-                    System.out.println("Only 2-8 players are allowed to play. Kindly re-enter a number from this range.");
+                    System.out.println("Only 2-8 players are allowed to play. " +
+                            "Kindly re-enter a number from this range.");
                 } else {
-                    System.out.println("There will be " + playerCount + " players in the game.");
-                    isValid = true;
+                    System.out.println("There will be " + playerCount +
+                            " players in the game.");
                     return playerCount;
                 }
             } catch(NumberFormatException nfe){
                 System.out.println("Make sure to enter a number.");
             }
-
         }
-
-        return playerCount;
     }
 
-    public int inputshuffleCount(){
-        boolean isValid = false;
-        int shuffleCount = 0;
+    public int inputShuffleCount(){
+        int shuffleCount;
 
-        while(!isValid){
+        while(true){
             try{
                 System.out.print("\nEnter number of shuffles (1-100): ");
                 shuffleCount = Integer.parseInt(kbd.nextLine().trim());
                 if(shuffleCount <= 0) {
-                    System.out.println("There must be at least 1 shuffle. Kindly re-enter a number greater than 0.");
+                    System.out.println("There must be at least 1 shuffle. " +
+                            "Kindly re-enter a number greater than 0.");
                 } else if (shuffleCount > 100) {
-                    System.out.println("Max of 100 shuffles only. Kindly re-enter a number from 1 to 100 only.");
+                    System.out.println("Max of 100 shuffles only. " +
+                            "Kindly re-enter a number from 1 to 100 only.");
                 } else {
                     if(shuffleCount == 1){
                         System.out.println("There will be 1 shuffle.");
                     } else {
                         System.out.println("There will be " + shuffleCount + " shuffles.");
                     }
-                    isValid = true;
                     return shuffleCount;
                 }
             } catch(NumberFormatException nfe){
                 System.out.println("Make sure to enter a number.");
             }
-
         }
-
-        return shuffleCount;
     }
 
     public void createPlayers(int numPlayers){
@@ -120,18 +139,10 @@ public class Game {
 
     public boolean isGameOver() {
         if (players.size() == 1){
+            System.out.println("\n!! We have a winner !!");
+            System.out.println("Congratulations, Player " + players.getFirst().getNumber());
             return true;
         }
-
         return false;
-    }
-
-    public void declareWinner(){
-        if (players.size() == 1){
-            System.out.println("\n!! We have a winner !!");System.out.println("Congratulations, Player " + players.get(0).getNumber());
-        } else {
-            System.out.println("!! Game ended in a DRAW !!");
-        }
-
     }
 }

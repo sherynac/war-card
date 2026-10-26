@@ -9,7 +9,7 @@ public class Round {
 
     public Round(int roundNum){
         this.roundNum = roundNum;
-        highestCard = new Card(Suit.C, Rank.TWO);
+        highestCard = null;
     }
 
     public Player startRound(List<Player> players){
@@ -18,23 +18,23 @@ public class Round {
 
         for (Player player: players){
             Card topCard = player.getTopCard();
-            if (topCard.compareTo(highestCard) > 0){
+
+            if(highestCard == null || topCard.compareTo(highestCard) > 0 ){
                 highestCard = topCard;
                 roundWinner = player;
             }
+
             System.out.println("P" + player.getNumber() + ": " + topCard);
             pot.add(topCard);
         }
-
         return roundWinner;
     }
 
     public void collectPot(Player roundWinner){
-
         pot.remove(highestCard);
         pot.addFirst(highestCard);
 
-        // SHOW ONLY COLLECTED CARDS
+//        SHOW ONLY COLLECTED CARDS
 //        System.out.println("\nP" + roundWinner.getNumber() + " wins Round #" + roundNum);
 //
 //        StringBuilder sb = new StringBuilder();
@@ -54,12 +54,8 @@ public class Round {
 
         roundWinner.addPot(pot);
 
-
         // SHOW ENTIRE PLAYER DECK
         System.out.println("\n> P" + roundWinner.getNumber() + " wins Round #" + roundNum + " <");
         System.out.println(roundWinner);
-
     }
-
-
 }

@@ -1,14 +1,12 @@
+
+
 package com.svi.warcard;
 
-public record Card(Rank rank, Suit suit) implements Comparable<Card> {
-    public Card(Suit suit, Rank rank) {
-        this(rank, suit);
-    }
+public record Card(Suit suit, Rank rank) implements Comparable<Card> {
 
     public Card(String input) {
         String[] parts = input.split("-");
-
-        this(Rank.fromString(parts[1]), Suit.fromSymbol(parts[0]));
+        this(Suit.fromSymbol(parts[0]), Rank.fromString(parts[1]));
     }
 
     @Override
@@ -23,6 +21,6 @@ public record Card(Rank rank, Suit suit) implements Comparable<Card> {
     }
 
     public String toString() {
-        return suit + "-" + ((rank.getValue() > 11) ? rank : rank.getValue());
+        return suit + "-" + ((rank.getValue() > 10) ? rank : rank.getValue());
     }
 }

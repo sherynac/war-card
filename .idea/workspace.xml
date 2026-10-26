@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52f5090f-425a-45f6-82ca-c1ac239b66dc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/title.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Card.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Dealer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Dealer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Rank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Rank.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Round.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/svi/warcard/Round.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/svi/warcard/WarCardMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/svi/warcard/WarCardMain.java" afterDir="false" />
     </list>
@@ -42,6 +43,7 @@
   &quot;keyToString&quot;: {
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;Maven.war-card-game [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.war-card-game [org.apache.maven.plugins:maven-jar-plugin:3.5.1:jar].executor&quot;: &quot;Run&quot;,
     &quot;Maven.war-card-game [package].executor&quot;: &quot;Run&quot;,
     &quot;Maven.war-card-game [validate].executor&quot;: &quot;Run&quot;,
     &quot;Maven.war-card-maven [clean].executor&quot;: &quot;Run&quot;,
@@ -69,6 +71,7 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\sheryn.cagulada\IdeaProjects\war-card-maven\src\main\resources" />
+      <recent name="C:\Users\sheryn.cagulada\IdeaProjects\war-card-maven\src\main\java\com\svi\warcard" />
     </key>
   </component>
   <component name="RunManager">

@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Player{
     private int number;
-    private List<Card> cardsOwned;
+    private final List<Card> cardsOwned;
 
     public Player(){
         this.cardsOwned = new ArrayList<>();
@@ -44,9 +44,9 @@ public class Player{
         for (int i = 0; i < cardsOwned.size(); i++) {
             sb.append(cardsOwned.get(i));
 
-            if ((i + 1) % 5 == 0) {
+            if ((i + 1) % 15 == 0 && i!= cardsOwned.size() -1) {
                 sb.append("\n");
-            } else {
+            } else if (i != cardsOwned.size() - 1){
                 sb.append(", ");
             }
         }
