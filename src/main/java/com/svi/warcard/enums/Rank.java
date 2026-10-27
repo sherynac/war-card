@@ -1,4 +1,4 @@
-package com.svi.warcard;
+package com.svi.warcard.enums;
 
 public enum Rank {
     A(14),
@@ -25,15 +25,14 @@ public enum Rank {
         return value;
     }
 
-    public static Rank fromString(String input) {
-        for (Rank rank: values()){
-            if (rank.toString().equalsIgnoreCase(input)){
+    public static Rank parse(String input) {
+        for (Rank rank: values()) {
+            if (rank.toString().equalsIgnoreCase(input)) {
                 return rank;
             } else if (String.valueOf(rank.getValue()).equalsIgnoreCase(input)) {
                 return rank;
             }
         }
-
         throw new IllegalArgumentException("Invalid rank: " + input);
     }
 }

@@ -1,36 +1,34 @@
 package com.svi.warcard;
-import java.util.*;
+
+import com.svi.warcard.models.Game;
+
+import java.util.Scanner;
 
 public class WarCardMain {
-    public static void main(String[] args) {
+    static void main() {
         boolean willPlayAgain = true;
-        Scanner kbd = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
-        while(willPlayAgain) {
-            Game game = new Game(kbd);
+        while (willPlayAgain) {
+            Game game = new Game(scanner);
             game.run();
-            willPlayAgain = playAgain(kbd);
+            willPlayAgain = playAgain(scanner);
         }
-        kbd.close();
+        scanner.close();
     }
 
-    public static boolean playAgain(Scanner kbd){
-        boolean isValid = false;
-        boolean willPlayAgain = false;
-
-        while(!isValid){
+    public static boolean playAgain(Scanner kbd) {
+        while (true) {
             System.out.print("\nPlay Again (y/n): ");
             String input = kbd.nextLine().trim();
             if (input.equalsIgnoreCase("y")) {
-                isValid = true;
-                willPlayAgain = true;
-            } else if (input.equalsIgnoreCase("n")){
-                isValid = true;
+                return true;
+            } else if (input.equalsIgnoreCase("n")) {
                 System.out.println("\n!! Thank you for playing War Card !!");
+                return false;
             } else {
                 System.out.println("\nMake sure entered value is only either 'y' or 'n'");
             }
         }
-        return willPlayAgain;
     }
 }

@@ -1,35 +1,43 @@
-package com.svi.warcard;
+package com.svi.warcard.models;
+
+import com.svi.warcard.ColorHelper;
+
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Game {
     private final Dealer dealer;
     private final List<Player> players;
-    private final Scanner kbd;
+    private final Scanner scanner;
 
-    public Game(Scanner kbd){
+    public Game(Scanner scanner) {
         players = new ArrayList<>();
         dealer = new Dealer();
-        this.kbd = kbd;
+        this.scanner = scanner;
     }
 
     public void run() {
         startGame();
         int roundNum = 1;
 
-        while (!isGameOver()){
+        while (!isGameOver()) {
             Round round = new Round(roundNum);
             Player roundWinner = round.startRound(players);
             round.collectPot(roundWinner);
             eliminatePlayers();
             roundNum++;
         }
+
+        declareWinner();
     }
 
-    public void startGame(){
+    private void startGame() {
         displayTitle();
 
         if (dealer.readDeck()) {
@@ -49,21 +57,24 @@ public class Game {
         dealer.dealCards(players);
     }
 
-    public static void displayTitle(){
-        try (InputStream input = Dealer.class.getClassLoader()
+    private void displayTitle() {
+        try (InputStream input = Game.class.getClassLoader()
                 .getResourceAsStream("title.txt")) {
 
-            if (input == null){
+            if (input == null) {
                 return;
             }
+
             try (BufferedReader br = new BufferedReader(
                     new InputStreamReader(input))) {
 
                 String line;
-
+                StringBuilder stringBuilder = new StringBuilder();
                 while ((line = br.readLine()) != null) {
-                    System.out.println(line);
+                    stringBuilder.append("\n").append(line);
                 }
+
+                System.out.println(ColorHelper.color(stringBuilder.toString(),"PURPLE", null));
             }
         } catch (IOException e) {
             System.out.println("Skipping Game Logo...");
@@ -72,77 +83,73 @@ public class Game {
         }
     }
 
-    public int inputPlayerCount(){
+    private int inputPlayerCount() {
         int playerCount;
 
-        while(true){
-            try{
+        while (true) {
+            try {
                 System.out.print("\nEnter number of players (2-8): ");
-                playerCount = Integer.parseInt(kbd.nextLine().trim());
+                playerCount = Integer.parseInt(scanner.nextLine().trim());
                 if(playerCount < 2 || playerCount > 8) {
                     System.out.println("Only 2-8 players are allowed to play. " +
                             "Kindly re-enter a number from this range.");
                 } else {
-                    System.out.println("There will be " + playerCount +
-                            " players in the game.");
+                    System.out.println(ColorHelper.color("There will be " + playerCount +
+                            " players in the game.", "YELLOW", null));
                     return playerCount;
                 }
-            } catch(NumberFormatException nfe){
+            } catch (NumberFormatException nfe) {
                 System.out.println("Make sure to enter a number.");
             }
         }
     }
 
-    public int inputShuffleCount(){
+    private int inputShuffleCount() {
         int shuffleCount;
 
-        while(true){
-            try{
+        while (true) {
+            try {
                 System.out.print("\nEnter number of shuffles (1-100): ");
-                shuffleCount = Integer.parseInt(kbd.nextLine().trim());
-                if(shuffleCount <= 0) {
-                    System.out.println("There must be at least 1 shuffle. " +
-                            "Kindly re-enter a number greater than 0.");
-                } else if (shuffleCount > 100) {
-                    System.out.println("Max of 100 shuffles only. " +
-                            "Kindly re-enter a number from 1 to 100 only.");
+                shuffleCount = Integer.parseInt(scanner.nextLine().trim());
+                if (shuffleCount <= 0 || shuffleCount > 100) {
+                    System.out.println("Number of shuffles must be in between 1 and 100 " +
+                            "Kindly re-enter a number.");
                 } else {
-                    if(shuffleCount == 1){
-                        System.out.println("There will be 1 shuffle.");
+                    if(shuffleCount == 1) {
+                        System.out.println(ColorHelper.color("There will be 1 shuffle.", "YELLOW",null));
                     } else {
-                        System.out.println("There will be " + shuffleCount + " shuffles.");
+                        System.out.println(ColorHelper.color("There will be " + shuffleCount + " shuffles.", "YELLOW", null));
                     }
                     return shuffleCount;
                 }
-            } catch(NumberFormatException nfe){
+            } catch (NumberFormatException nfe) {
                 System.out.println("Make sure to enter a number.");
             }
         }
     }
 
-    public void createPlayers(int numPlayers){
-        for(int i = 0; i < numPlayers; i++) {
+    private void createPlayers(int numPlayers) {
+        for (int i = 0; i < numPlayers; i++) {
             players.add(new Player((i+1)));
         }
-
     }
 
-    public void eliminatePlayers(){
+    private void eliminatePlayers() {
         players.removeIf(player -> {
-            if (player.getCardsOwned().isEmpty()) {
-                System.out.println("\n> P" + player.getNumber() + " is eliminated <");
+            if (player.hasNoCards()) {
+                System.out.println("\n" + ColorHelper.color("✖ > P" + player.getNumber() + " is eliminated", "RED", null));
                 return true;
             }
             return false;
         });
     }
 
-    public boolean isGameOver() {
-        if (players.size() == 1){
-            System.out.println("\n!! We have a winner !!");
-            System.out.println("Congratulations, Player " + players.getFirst().getNumber());
-            return true;
-        }
-        return false;
+    private boolean isGameOver() {
+        return players.size() == 1;
+    }
+
+    private void declareWinner(){
+        System.out.println("\n" + ColorHelper.color("!! We have a winner !!", "BLACK", "GREEN_BG"));
+        System.out.println("♔ Congratulations, Player " + players.getFirst().getNumber() + "!");
     }
 }

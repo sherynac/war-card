@@ -1,4 +1,4 @@
-package com.svi.warcard;
+package com.svi.warcard.enums;
 
 public enum Suit {
     D(4),
@@ -16,14 +16,12 @@ public enum Suit {
         return value;
     }
 
-    public static Suit fromSymbol(String input) {
+    public static Suit parse(String input) {
         for (Suit suit : values()) {
             if (suit.toString().equalsIgnoreCase(input)) {
                 return suit;
             }
         }
-
-
         throw new IllegalArgumentException("Invalid suit: " + input);
     }
 }

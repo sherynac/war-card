@@ -1,57 +1,58 @@
-package com.svi.warcard;
-import java.util.*;
+package com.svi.warcard.models;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Player{
     private int number;
     private final List<Card> cardsOwned;
 
-    public Player(){
+    public Player() {
         this.cardsOwned = new ArrayList<>();
     }
 
-    public Player(int number){
+    public Player(int number) {
         this.number = number;
         this.cardsOwned = new ArrayList<>();
     }
 
-    public int getNumber(){
+    public int getNumber() {
         return number;
     }
 
-    public List<Card> getCardsOwned(){
-        return cardsOwned;
+    public boolean hasNoCards(){
+        return cardsOwned.isEmpty();
     }
 
-    public Card getTopCard(){
+    public Card drawTopCard() {
         return cardsOwned.removeFirst();
     }
 
-    public void addToCards(Card card){
+    public void addCard(Card card) {
         this.cardsOwned.add(card);
     }
 
-    public void addPot(List<Card> cards){
+    public void addPot(List<Card> cards) {
         this.cardsOwned.addAll(cards);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\nP").append(number)
-                .append(" (").append(cardsOwned.size()).append(" cards)")
-                .append("\nDeck:\n");
+        sb.append("P").append(number)
+                .append("'s Deck ")
+                .append("(").append(cardsOwned.size())
+                .append(" cards): ");
 
         for (int i = 0; i < cardsOwned.size(); i++) {
             sb.append(cardsOwned.get(i));
 
-            if ((i + 1) % 15 == 0 && i!= cardsOwned.size() -1) {
+            if ((i + 1) % 15 == 0 && i!= cardsOwned.size() - 1) {
                 sb.append("\n");
             } else if (i != cardsOwned.size() - 1){
                 sb.append(", ");
             }
         }
-
         return sb.toString();
     }
-
 }

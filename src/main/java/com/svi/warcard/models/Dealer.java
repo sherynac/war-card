@@ -1,11 +1,19 @@
-package com.svi.warcard;
-import java.io.*;
-import java.util.*;
+package com.svi.warcard.models;
+
+import com.svi.warcard.ColorHelper;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
 
 public class Dealer {
     private List<Card> cards;
 
-    public Dealer(){
+    public Dealer() {
         this.cards = new ArrayList<>();
     }
 
@@ -13,7 +21,7 @@ public class Dealer {
         try (InputStream input = Dealer.class.getClassLoader()
                 .getResourceAsStream("input.txt")) {
 
-            if (input == null){
+            if (input == null) {
                 System.out.println("\nFile does not exist.");
                 System.out.println("Kindly double check the text file and rerun the application.");
                 return false;
@@ -60,20 +68,15 @@ public class Dealer {
         return true;
     }
 
-    public void shuffleDeck(int numShuffle){
-//        for (int k = 0; k < numShuffle; k++){
-//            Collections.shuffle(cards);
-//        }
+    public void shuffleDeck(int numShuffles){
+        System.out.println("\n" + ColorHelper.color("Dealer is shuffling cards...", "YELLOW", null));
 
-//        PERFECT SHUFFLE
-        System.out.println("\nDealer is shuffling cards...");
-
-        for(int k = 0; k < numShuffle; k++ ){
+        for (int k = 0; k < numShuffles; k++) {
             List<Card> list1 = cards.subList(0,26);
             List<Card> list2 = cards.subList(26,52);
             List<Card> shuffledDeck = new ArrayList<>();
 
-            for(int i = 0; i < list1.size(); i++){
+            for (int i = 0; i < list1.size(); i++) {
                 shuffledDeck.add(list1.get(i));
                 shuffledDeck.add(list2.get(i));
             }
@@ -88,7 +91,7 @@ public class Dealer {
                     break;
                 }
                 Card card = cards.removeFirst();
-                player.addToCards(card);
+                player.addCard(card);
             }
         }
     }
@@ -100,7 +103,7 @@ public class Dealer {
 
             if ((i + 1) % 15 == 0) {
                 stringBuilder.append("\n");
-            } else if (i != cards.size() - 1){
+            } else if (i != cards.size() - 1) {
                 stringBuilder.append(", ");
             }
         }
