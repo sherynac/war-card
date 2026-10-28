@@ -24,7 +24,7 @@ public class Game {
     }
 
     public void run() {
-        startGame();
+        setupGame();
         int roundNum = 1;
 
         while (!isGameOver()) {
@@ -38,7 +38,7 @@ public class Game {
         declareWinner();
     }
 
-    private void startGame() {
+    private void setupGame() {
         displayTitle();
 
         if(dealer.readDeck()){
@@ -116,16 +116,13 @@ public class Game {
                 if (shuffleCount <= 0 || shuffleCount > 100) {
                     System.out.println("Number of shuffles must be in between 1 and 100. "
                             + "Kindly re-enter a number.");
-                } else {
-                    if (shuffleCount == 1) {
-                        System.out.println(ColorHelper.color(
-                                "There will be 1 shuffle.", "YELLOW"));
-                    } else {
-                        System.out.println(ColorHelper.color(
-                                "There will be " + shuffleCount + " shuffles.", "YELLOW"));
-                    }
-                    return shuffleCount;
+                    continue;
                 }
+
+                String noun = (shuffleCount == 1) ? " shuffle." : " shuffles.";
+                System.out.println(ColorHelper.color(
+                        "There will be " + shuffleCount + noun, "YELLOW"));
+                return shuffleCount;
             } catch (NumberFormatException nfe) {
                 System.out.println("Make sure to enter a number.");
             }
