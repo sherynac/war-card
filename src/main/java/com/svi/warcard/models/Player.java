@@ -3,7 +3,7 @@ package com.svi.warcard.models;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Player{
+public class Player {
     private int number;
     private final List<Card> cardsOwned;
 
@@ -20,7 +20,7 @@ public class Player{
         return number;
     }
 
-    public boolean hasNoCards(){
+    public boolean hasNoCards() {
         return cardsOwned.isEmpty();
     }
 
@@ -47,7 +47,7 @@ public class Player{
         for (int i = 0; i < cardsOwned.size(); i++) {
             sb.append(cardsOwned.get(i));
 
-            if ((i + 1) % 15 == 0 && i!= cardsOwned.size() - 1) {
+            if ((i + 1) % 15 == 0 && i != cardsOwned.size() - 1) {
                 sb.append("\n");
             } else if (i != cardsOwned.size() - 1){
                 sb.append(", ");

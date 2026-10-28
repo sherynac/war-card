@@ -1,11 +1,14 @@
-package com.svi.warcard.models;
+package com.svi.warcard.game;
 
 import com.svi.warcard.ColorHelper;
+import com.svi.warcard.models.Card;
+import com.svi.warcard.models.Player;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.BufferedReader;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -23,7 +26,6 @@ public class Dealer {
 
             if (input == null) {
                 System.out.println("\nFile does not exist.");
-                System.out.println("Kindly double check the text file and rerun the application.");
                 return false;
             }
 
@@ -38,9 +40,8 @@ public class Dealer {
                     while (st.hasMoreTokens()) {
                         Card card = new Card(st.nextToken().trim());
 
-                        if(cards.contains(card)){
+                        if (cards.contains(card)) {
                             System.out.println("\nDuplicate card detected.");
-                            System.out.println("Kindly double check the text file and rerun the application.");
                             return false;
                         }
                         cards.add(card);
@@ -49,27 +50,24 @@ public class Dealer {
             }
         } catch (IOException e) {
             System.out.println("\nError reading file.");
-            System.out.println("Kindly double check the text file and rerun the application.");
             return false;
         } catch (IllegalArgumentException iae) {
             System.out.println("\nInformation mismatch.");
             System.out.println(iae.getMessage());
-            System.out.println("Kindly double check the text file and rerun the application.");
             return false;
         }
 
         if (cards.size() != 52) {
             System.out.println("\nStandard deck should have exactly 52 cards. Read file had "
                     + cards.size() + " cards.");
-            System.out.println("Kindly double check the text file and rerun the application.");
             return false;
         }
-
         return true;
     }
 
-    public void shuffleDeck(int numShuffles){
-        System.out.println("\n" + ColorHelper.color("Dealer is shuffling cards...", "YELLOW", null));
+    public void shuffleDeck(int numShuffles) {
+        System.out.println("\n" + ColorHelper.color(
+                "Dealer is shuffling cards...", "YELLOW"));
 
         for (int k = 0; k < numShuffles; k++) {
             List<Card> list1 = cards.subList(0,26);
@@ -96,8 +94,9 @@ public class Dealer {
         }
     }
 
-    public String showCards(){
+    public String showCards() {
         StringBuilder stringBuilder = new StringBuilder();
+
         for (int i = 0; i < cards.size(); i++) {
             stringBuilder.append(cards.get(i));
 

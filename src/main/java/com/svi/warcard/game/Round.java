@@ -1,6 +1,8 @@
-package com.svi.warcard.models;
+package com.svi.warcard.game;
 
 import com.svi.warcard.ColorHelper;
+import com.svi.warcard.models.Card;
+import com.svi.warcard.models.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,13 +17,13 @@ public class Round {
     }
 
     public Player startRound(List<Player> players) {
-        System.out.println("\n" + ColorHelper.color("--- ROUND #" + roundNum + " ---" , "BLACK", "YELLOW_BG"));
-        Player roundWinner = new Player();
+        System.out.println("\n" + ColorHelper.color("--- ROUND #" + roundNum + " ---", "BLACK", "YELLOW_BG"));
+        Player roundWinner = null;
 
-        for (Player player: players) {
+        for (Player player : players) {
             Card topCard = player.drawTopCard();
 
-            if (highestCard == null || topCard.compareTo(highestCard) > 0 ) {
+            if (highestCard == null || topCard.compareTo(highestCard) > 0) {
                 highestCard = topCard;
                 roundWinner = player;
             }

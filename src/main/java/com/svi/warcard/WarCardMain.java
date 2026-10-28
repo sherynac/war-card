@@ -1,6 +1,6 @@
 package com.svi.warcard;
 
-import com.svi.warcard.models.Game;
+import com.svi.warcard.game.Game;
 
 import java.util.Scanner;
 
@@ -17,10 +17,10 @@ public class WarCardMain {
         scanner.close();
     }
 
-    public static boolean playAgain(Scanner kbd) {
+    private static boolean playAgain(Scanner scanner) {
         while (true) {
             System.out.print("\nPlay Again (y/n): ");
-            String input = kbd.nextLine().trim();
+            String input = scanner.nextLine().trim();
             if (input.equalsIgnoreCase("y")) {
                 return true;
             } else if (input.equalsIgnoreCase("n")) {

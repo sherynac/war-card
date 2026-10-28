@@ -2,7 +2,7 @@ package com.svi.warcard;
 
 import java.util.Map;
 
-public class ColorHelper {
+public final class ColorHelper {
     private static final Map<String, String> ANSI_COLORS = Map.of(
             "RED", "\u001B[31m",
             "GREEN", "\u001B[32m",
@@ -31,5 +31,7 @@ public class ColorHelper {
                 .toString();
     }
 
-
+    public static String color(String text, String fontColor) {
+        return color(text, fontColor, null);
+    }
 }

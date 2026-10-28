@@ -1,14 +1,15 @@
-package com.svi.warcard.models;
+package com.svi.warcard.game;
 
 import com.svi.warcard.ColorHelper;
+import com.svi.warcard.models.Player;
 
-import java.awt.*;
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.List;
+import java.io.IOException;
+
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Game {
@@ -40,10 +41,11 @@ public class Game {
     private void startGame() {
         displayTitle();
 
-        if (dealer.readDeck()) {
+        if(dealer.readDeck()){
             System.out.println("\nDeck has been loaded successfully.");
         } else {
-            System.exit(0);
+            System.out.println("Kindly double check the text file and rerun the application.");
+            System.exit(1);
         }
 
         int playerCount = inputPlayerCount();
@@ -74,7 +76,7 @@ public class Game {
                     stringBuilder.append("\n").append(line);
                 }
 
-                System.out.println(ColorHelper.color(stringBuilder.toString(),"PURPLE", null));
+                System.out.println(ColorHelper.color(stringBuilder.toString(), "PURPLE", null));
             }
         } catch (IOException e) {
             System.out.println("Skipping Game Logo...");
@@ -90,12 +92,12 @@ public class Game {
             try {
                 System.out.print("\nEnter number of players (2-8): ");
                 playerCount = Integer.parseInt(scanner.nextLine().trim());
-                if(playerCount < 2 || playerCount > 8) {
-                    System.out.println("Only 2-8 players are allowed to play. " +
-                            "Kindly re-enter a number from this range.");
+                if (playerCount < 2 || playerCount > 8) {
+                    System.out.println("Only 2-8 players are allowed to play. "
+                            + "Kindly re-enter a number from this range.");
                 } else {
-                    System.out.println(ColorHelper.color("There will be " + playerCount +
-                            " players in the game.", "YELLOW", null));
+                    System.out.println(ColorHelper.color("There will be " + playerCount
+                            + " players in the game.", "YELLOW", null));
                     return playerCount;
                 }
             } catch (NumberFormatException nfe) {
@@ -112,13 +114,15 @@ public class Game {
                 System.out.print("\nEnter number of shuffles (1-100): ");
                 shuffleCount = Integer.parseInt(scanner.nextLine().trim());
                 if (shuffleCount <= 0 || shuffleCount > 100) {
-                    System.out.println("Number of shuffles must be in between 1 and 100 " +
-                            "Kindly re-enter a number.");
+                    System.out.println("Number of shuffles must be in between 1 and 100. "
+                            + "Kindly re-enter a number.");
                 } else {
-                    if(shuffleCount == 1) {
-                        System.out.println(ColorHelper.color("There will be 1 shuffle.", "YELLOW",null));
+                    if (shuffleCount == 1) {
+                        System.out.println(ColorHelper.color(
+                                "There will be 1 shuffle.", "YELLOW"));
                     } else {
-                        System.out.println(ColorHelper.color("There will be " + shuffleCount + " shuffles.", "YELLOW", null));
+                        System.out.println(ColorHelper.color(
+                                "There will be " + shuffleCount + " shuffles.", "YELLOW"));
                     }
                     return shuffleCount;
                 }
@@ -130,14 +134,15 @@ public class Game {
 
     private void createPlayers(int numPlayers) {
         for (int i = 0; i < numPlayers; i++) {
-            players.add(new Player((i+1)));
+            players.add(new Player(i + 1));
         }
     }
 
     private void eliminatePlayers() {
         players.removeIf(player -> {
             if (player.hasNoCards()) {
-                System.out.println("\n" + ColorHelper.color("✖ > P" + player.getNumber() + " is eliminated", "RED", null));
+                System.out.println("\n" + ColorHelper.color(
+                        "✖ > P" + player.getNumber() + " is eliminated", "RED"));
                 return true;
             }
             return false;
@@ -148,7 +153,7 @@ public class Game {
         return players.size() == 1;
     }
 
-    private void declareWinner(){
+    private void declareWinner() {
         System.out.println("\n" + ColorHelper.color("!! We have a winner !!", "BLACK", "GREEN_BG"));
         System.out.println("♔ Congratulations, Player " + players.getFirst().getNumber() + "!");
     }

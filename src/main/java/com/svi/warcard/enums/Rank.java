@@ -26,7 +26,7 @@ public enum Rank {
     }
 
     public static Rank parse(String input) {
-        for (Rank rank: values()) {
+        for (Rank rank : values()) {
             if (rank.toString().equalsIgnoreCase(input)) {
                 return rank;
             } else if (String.valueOf(rank.getValue()).equalsIgnoreCase(input)) {

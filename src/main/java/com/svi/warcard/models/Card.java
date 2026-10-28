@@ -3,6 +3,7 @@ package com.svi.warcard.models;
 import com.svi.warcard.ColorHelper;
 import com.svi.warcard.enums.Rank;
 import com.svi.warcard.enums.Suit;
+
 import java.util.StringTokenizer;
 
 public record Card(Suit suit, Rank rank) implements Comparable<Card> {
@@ -32,7 +33,7 @@ public record Card(Suit suit, Rank rank) implements Comparable<Card> {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
 
-        switch (suit){
+        switch (suit) {
             case D -> stringBuilder.append("♦");
             case H -> stringBuilder.append("♥");
             case S -> stringBuilder.append("♠");
@@ -44,8 +45,7 @@ public record Card(Suit suit, Rank rank) implements Comparable<Card> {
         stringBuilder.append(((rank.getValue() > 10) ? rank : rank.getValue()));
 
         return ((suit.getValue() > 2
-                ? ColorHelper.color(stringBuilder.toString(), "RED",null)
-                : ColorHelper.color(stringBuilder.toString(), "BLUE", null)));
-
+                ? ColorHelper.color(stringBuilder.toString(), "RED")
+                : ColorHelper.color(stringBuilder.toString(), "BLUE")));
     }
 }
