@@ -4,12 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
-    private int number;
+    private final int number;
     private final List<Card> cardsOwned;
-
-    public Player() {
-        this.cardsOwned = new ArrayList<>();
-    }
 
     public Player(int number) {
         this.number = number;

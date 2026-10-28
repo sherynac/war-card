@@ -17,7 +17,8 @@ public class Round {
     }
 
     public Player startRound(List<Player> players) {
-        System.out.println("\n" + ColorHelper.color("--- ROUND #" + roundNum + " ---", "BLACK", "YELLOW_BG"));
+        System.out.println("\n" + ColorHelper.color(
+                "--- ROUND #" + roundNum + " ---", "BLACK", "YELLOW_BG"));
         Player roundWinner = null;
 
         for (Player player : players) {
@@ -39,7 +40,8 @@ public class Round {
         pot.addFirst(highestCard);
         roundWinner.addPot(pot);
 
-        System.out.println("\n" + ColorHelper.color("★ > P" + roundWinner.getNumber() + " wins Round #" + roundNum, "GREEN", null));
+        System.out.println("\n" + ColorHelper.color(
+                "★ > P" + roundWinner.getNumber() + " wins Round #" + roundNum, "GREEN", null));
         System.out.println(roundWinner);
     }
 }

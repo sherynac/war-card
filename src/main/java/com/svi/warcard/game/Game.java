@@ -76,7 +76,7 @@ public class Game {
                     stringBuilder.append("\n").append(line);
                 }
 
-                System.out.println(ColorHelper.color(stringBuilder.toString(), "PURPLE", null));
+                System.out.println(ColorHelper.color(stringBuilder.toString(), "PURPLE"));
             }
         } catch (IOException e) {
             System.out.println("Skipping Game Logo...");
@@ -96,8 +96,8 @@ public class Game {
                     System.out.println("Only 2-8 players are allowed to play. "
                             + "Kindly re-enter a number from this range.");
                 } else {
-                    System.out.println(ColorHelper.color("There will be " + playerCount
-                            + " players in the game.", "YELLOW", null));
+                    System.out.println(ColorHelper.color(
+                            "There will be " + playerCount + " players in the game.", "YELLOW"));
                     return playerCount;
                 }
             } catch (NumberFormatException nfe) {
