@@ -12,7 +12,7 @@ public record Card(Suit suit, Rank rank) implements Comparable<Card> {
         StringTokenizer st = new StringTokenizer(input, "-");
 
         if (st.countTokens() != 2) {
-            throw new IllegalArgumentException("Invalid card format: " + input);
+            throw new IllegalArgumentException("\nInvalid card format: " + input);
         }
 
         this(Suit.parse(st.nextToken()), Rank.parse(st.nextToken()));

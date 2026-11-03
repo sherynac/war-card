@@ -1,3 +1,10 @@
+/**
+ * @author Sheryn Cagulada
+ * @version October 30, 2026
+ *
+ * Contains the Rank enum for getting the value of each rank and method for parsing
+ */
+
 package com.svi.warcard.enums;
 
 public enum Rank {
@@ -21,10 +28,19 @@ public enum Rank {
         this.value = value;
     }
 
+    /**
+     *
+     * @return value of Rank
+     */
     public int getValue() {
         return value;
     }
 
+    /**
+     * Parse the Rank based on input; Throws Exception if it does not exist
+     * @param input
+     * @return Rank
+     */
     public static Rank parse(String input) {
         for (Rank rank : values()) {
             if (rank.toString().equalsIgnoreCase(input)) {
@@ -33,6 +49,6 @@ public enum Rank {
                 return rank;
             }
         }
-        throw new IllegalArgumentException("Invalid rank: " + input);
+        throw new IllegalArgumentException("\nInvalid rank: " + input);
     }
 }

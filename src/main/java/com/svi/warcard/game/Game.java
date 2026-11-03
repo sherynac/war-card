@@ -1,3 +1,9 @@
+/**
+ * @author Sheryn Cagulada
+ * @version October 30, 2026
+ *
+ * Contains the overall game logic
+ */
 package com.svi.warcard.game;
 
 import com.svi.warcard.ColorHelper;
@@ -17,12 +23,20 @@ public class Game {
     private final List<Player> players;
     private final Scanner scanner;
 
+    /**
+     * Constructs a Game object
+     * @param scanner refers to the System input
+     */
     public Game(Scanner scanner) {
         players = new ArrayList<>();
         dealer = new Dealer();
         this.scanner = scanner;
     }
 
+    /**
+     * Contains the game loop including game setup, checking of winners,
+     * round collections, elimination of players and declaration of game winner
+     */
     public void run() {
         setupGame();
         int roundNum = 1;
@@ -38,12 +52,18 @@ public class Game {
         declareWinner();
     }
 
+    /**
+     * Executes game setup by displaying game title, loading the deck,
+     * retrieving user input, shuffling and dealing cards to players
+     */
     private void setupGame() {
         displayTitle();
 
-        if(dealer.readDeck()){
+        try {
+            dealer.readDeck();
             System.out.println("\nDeck has been loaded successfully.");
-        } else {
+        } catch (IOException | IllegalArgumentException e){
+            System.out.println(e.getMessage());
             System.out.println("Kindly double check the text file and rerun the application.");
             System.exit(1);
         }
@@ -59,6 +79,9 @@ public class Game {
         dealer.dealCards(players);
     }
 
+    /**
+     * Displays the game logo and title
+     */
     private void displayTitle() {
         try (InputStream input = Game.class.getClassLoader()
                 .getResourceAsStream("title.txt")) {
@@ -85,6 +108,10 @@ public class Game {
         }
     }
 
+    /**
+     * Retrieves and validates player count from the user
+     * @return refers to the number of players in the game
+     */
     private int inputPlayerCount() {
         int playerCount;
 
@@ -106,6 +133,10 @@ public class Game {
         }
     }
 
+    /**
+     * Retrieves and validates shuffle count from the user
+     * @return refers to the number of shuffles
+     */
     private int inputShuffleCount() {
         int shuffleCount;
 
@@ -129,12 +160,19 @@ public class Game {
         }
     }
 
+    /**
+     * Creates the Player objects based on how many will participate in the game
+     * @param numPlayers refers to the user input for number of players
+     */
     private void createPlayers(int numPlayers) {
         for (int i = 0; i < numPlayers; i++) {
             players.add(new Player(i + 1));
         }
     }
 
+    /**
+     * Checks for players with no cards and eliminates them
+     */
     private void eliminatePlayers() {
         players.removeIf(player -> {
             if (player.hasNoCards()) {
@@ -146,10 +184,17 @@ public class Game {
         });
     }
 
+    /**
+     * Checks if there is only one player left
+     * @return true if game is over; else game is ongoing
+     */
     private boolean isGameOver() {
         return players.size() == 1;
     }
 
+    /**
+     * Displays the final game winner
+     */
     private void declareWinner() {
         System.out.println("\n" + ColorHelper.color("!! We have a winner !!", "BLACK", "GREEN_BG"));
         System.out.println("♔ Congratulations, Player " + players.getFirst().getNumber() + "!");

@@ -1,3 +1,9 @@
+/**
+ * @author Sheryn Cagulada
+ * @version October 30, 2026
+ *
+ * Contains the round
+ */
 package com.svi.warcard.game;
 
 import com.svi.warcard.ColorHelper;
