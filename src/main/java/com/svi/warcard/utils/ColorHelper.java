@@ -1,4 +1,11 @@
-package com.svi.warcard;
+/**
+ * Utility for adding color to console display
+ *
+ * @author Sheryn Ann Cagulada
+ * @version October 30, 2026
+ */
+
+package com.svi.warcard.utils;
 
 import java.util.Map;
 
@@ -15,6 +22,14 @@ public final class ColorHelper {
             "RESET", "\u001B[0m"
     );
 
+    /**
+     * Builds a string with the specified font and background colors.
+     *
+     * @param text the text to be colored
+     * @param fontColor the font color to apply
+     * @param bgColor the background color to apply
+     * @return the formatted string with the specified colors
+     */
     public static String color(String text, String fontColor, String bgColor) {
         StringBuilder result = new StringBuilder();
 
@@ -31,6 +46,13 @@ public final class ColorHelper {
                 .toString();
     }
 
+    /**
+     * Builds a string with the specified font color.
+     *
+     * @param text the text to be colored
+     * @param fontColor the font color to apply
+     * @return the formatted string with the specified color
+     */
     public static String color(String text, String fontColor) {
         return color(text, fontColor, null);
     }

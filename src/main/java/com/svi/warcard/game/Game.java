@@ -7,7 +7,7 @@
  */
 package com.svi.warcard.game;
 
-import com.svi.warcard.ColorHelper;
+import com.svi.warcard.utils.ColorHelper;
 import com.svi.warcard.models.Player;
 
 import java.io.BufferedReader;
@@ -36,7 +36,7 @@ public class Game {
     }
 
     /**
-     * Executes the main game loop including game setup, round execution
+     * Executes the main game loop including game setup, round execution,
      * pot collection, player elimination and winner declaration
      */
     public void run() {

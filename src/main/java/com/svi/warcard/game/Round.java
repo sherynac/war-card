@@ -6,7 +6,7 @@
  */
 package com.svi.warcard.game;
 
-import com.svi.warcard.ColorHelper;
+import com.svi.warcard.utils.ColorHelper;
 import com.svi.warcard.models.Card;
 import com.svi.warcard.models.Player;
 

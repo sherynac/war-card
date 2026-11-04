@@ -1,10 +1,22 @@
+/**
+ * Serves as the entry point of the War Card game application.
+ * Manages game initialization and replay prompts.
+ *
+ * @author Sheryn Cagulada
+ * @version October 30, 2026
+ */
+
 package com.svi.warcard;
 
 import com.svi.warcard.game.Game;
 
 import java.util.Scanner;
 
-public class WarCardMain {
+public class Main {
+
+    /**
+     * Starts the game and manages the replay loop.
+     */
     static void main() {
         boolean willPlayAgain = true;
         Scanner scanner = new Scanner(System.in);
@@ -17,6 +29,12 @@ public class WarCardMain {
         scanner.close();
     }
 
+    /**
+     * Prompts the user to play another game and validates the response.
+     *
+     * @param scanner the scanner used to read user input
+     * @return true if the user chooses to play again; false otherwise
+     */
     private static boolean playAgain(Scanner scanner) {
         while (true) {
             System.out.print("\nPlay Again (y/n): ");

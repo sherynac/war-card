@@ -7,7 +7,7 @@
  */
 package com.svi.warcard.models;
 
-import com.svi.warcard.ColorHelper;
+import com.svi.warcard.utils.ColorHelper;
 import com.svi.warcard.enums.Rank;
 import com.svi.warcard.enums.Suit;
 

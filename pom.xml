@@ -32,7 +32,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.svi.warcard.WarCardMain</mainClass>
+                            <mainClass>com.svi.warcard.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
