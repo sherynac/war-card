@@ -1,3 +1,10 @@
+/**
+ * Represents a player in the card game and manages their deck of cards.
+ *
+ * @author Sheryn Cagulada
+ * @version October 30, 2026
+ */
+
 package com.svi.warcard.models;
 
 import java.util.ArrayList;

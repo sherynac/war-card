@@ -1,8 +1,9 @@
 /**
+ * Manages overall game flow including game setup, round creation,
+ * player elimination and winner declaration
+ *
  * @author Sheryn Cagulada
  * @version October 30, 2026
- *
- * Contains the overall game logic
  */
 package com.svi.warcard.game;
 
@@ -24,8 +25,9 @@ public class Game {
     private final Scanner scanner;
 
     /**
-     * Constructs a Game object
-     * @param scanner refers to the System input
+     * Constructs a Game object with provided scanner for user input
+     *
+     * @param scanner for reading user input
      */
     public Game(Scanner scanner) {
         players = new ArrayList<>();
@@ -34,8 +36,8 @@ public class Game {
     }
 
     /**
-     * Contains the game loop including game setup, checking of winners,
-     * round collections, elimination of players and declaration of game winner
+     * Executes the main game loop including game setup, round execution
+     * pot collection, player elimination and winner declaration
      */
     public void run() {
         setupGame();
@@ -53,8 +55,9 @@ public class Game {
     }
 
     /**
-     * Executes game setup by displaying game title, loading the deck,
-     * retrieving user input, shuffling and dealing cards to players
+     * Initializes the game by displaying the title, loading the cards,
+     * retrieving player and shuffle count, shuffling the deck,
+     * and dealing cards to players.
      */
     private void setupGame() {
         displayTitle();
@@ -80,7 +83,7 @@ public class Game {
     }
 
     /**
-     * Displays the game logo and title
+     * Displays the game logo and welcome message
      */
     private void displayTitle() {
         try (InputStream input = Game.class.getClassLoader()
@@ -109,8 +112,9 @@ public class Game {
     }
 
     /**
-     * Retrieves and validates player count from the user
-     * @return refers to the number of players in the game
+     * Prompts user for the number of players and validates the input
+     *
+     * @return validated number of players
      */
     private int inputPlayerCount() {
         int playerCount;
@@ -134,8 +138,9 @@ public class Game {
     }
 
     /**
-     * Retrieves and validates shuffle count from the user
-     * @return refers to the number of shuffles
+     * Prompts user for the number of shuffles and validates the input
+     *
+     * @return validated number of shuffles
      */
     private int inputShuffleCount() {
         int shuffleCount;
@@ -161,8 +166,9 @@ public class Game {
     }
 
     /**
-     * Creates the Player objects based on how many will participate in the game
-     * @param numPlayers refers to the user input for number of players
+     * Creates the specified number of players and adds them to the game
+     *
+     * @param numPlayers validated number of players
      */
     private void createPlayers(int numPlayers) {
         for (int i = 0; i < numPlayers; i++) {
@@ -171,7 +177,7 @@ public class Game {
     }
 
     /**
-     * Checks for players with no cards and eliminates them
+     * Removes players who no longer have cards from the game
      */
     private void eliminatePlayers() {
         players.removeIf(player -> {
@@ -185,15 +191,16 @@ public class Game {
     }
 
     /**
-     * Checks if there is only one player left
-     * @return true if game is over; else game is ongoing
+     * Checks if one player remains in the game
+     *
+     * @return true if one player remains; false otherwise
      */
     private boolean isGameOver() {
         return players.size() == 1;
     }
 
     /**
-     * Displays the final game winner
+     * Displays the winner of the game
      */
     private void declareWinner() {
         System.out.println("\n" + ColorHelper.color("!! We have a winner !!", "BLACK", "GREEN_BG"));

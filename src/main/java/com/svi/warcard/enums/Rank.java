@@ -1,8 +1,8 @@
 /**
+ * Represents the ranks of playing cards and their corresponding numerical values.
+ *
  * @author Sheryn Cagulada
  * @version October 30, 2026
- *
- * Contains the Rank enum for getting the value of each rank and method for parsing
  */
 
 package com.svi.warcard.enums;
@@ -24,11 +24,17 @@ public enum Rank {
 
     private final int value;
 
+    /**
+     * Constructs a rank with its corresponding numerical value
+     *
+     * @param value numerical value assigned to the rank
+     */
     Rank(int value) {
         this.value = value;
     }
 
     /**
+     * Returns numerical value of rank
      *
      * @return value of Rank
      */
@@ -37,9 +43,11 @@ public enum Rank {
     }
 
     /**
-     * Parse the Rank based on input; Throws Exception if it does not exist
-     * @param input
-     * @return Rank
+     * Parse a String to its corresponding Rank
+     *
+     * @param input string representation of the rank
+     * @return the corresponding rank
+     * @throws IllegalArgumentException if the input does not match any rank
      */
     public static Rank parse(String input) {
         for (Rank rank : values()) {

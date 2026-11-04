@@ -1,8 +1,8 @@
 /**
+ * Manages the card deck including loading, shuffling, displaying and dealing cards to players
+ *
  * @author Sheryn Cagulada
  * @version October 30, 2026
- *
- * Contains the Dealer class in charge of game setup of the card decks
  */
 package com.svi.warcard.game;
 
@@ -19,15 +19,19 @@ public class Dealer {
     private List<Card> cards;
 
     /**
-     * Constructs a Dealer Object
+     * Constructs a Dealer Object with an empty card deck
      */
     public Dealer() {
         this.cards = new ArrayList<>();
     }
 
     /**
-     * Loads card deck from text file and throws exception for errors
-     * @throws IOException for errors found
+     * Loads card deck from text file and validates its content
+     *
+     * @throws IOException for I/O errors while reading the file
+     * @throws FileNotFoundException if the file does not exist
+     * @throws IllegalArgumentException for duplicate cards,
+     *          does not contain exactly 52 cards, or contains invalid card data
      */
     public void readDeck() throws IOException {
         InputStream input = Dealer.class.getClassLoader()
@@ -63,8 +67,10 @@ public class Dealer {
     }
 
     /**
-     * Performs perfect shuffle on deck of cards
-     * @param numShuffles refers to the number of shuffles
+     * Performs perfect shuffle on card deck by splitting deck into two halves
+     * and alternately adding cards from each half
+     *
+     * @param numShuffles the number of times deck has been shuffled
      */
     public void shuffleDeck(int numShuffles) {
         System.out.println("\n" + ColorHelper.color(
@@ -84,8 +90,10 @@ public class Dealer {
     }
 
     /**
-     * Deals cards to players in round-robin manner including excess cards
-     * @param players refers to the list of players in the games
+     * Deals cards to players in round-robin manner until the deck is empty.
+     * Any excess cards are distributed among the players.
+     *
+     * @param players the list of players receiving cards
      */
     public void dealCards(List<Player> players) {
         while (!cards.isEmpty()) {
@@ -100,8 +108,9 @@ public class Dealer {
     }
 
     /**
-     * Method that builds and returns a string of cards
-     * @return String of Card Deck
+     * Returns a formatted string representation of the card deck
+     *
+     * @return the formatted card deck
      */
     public String showCards() {
         StringBuilder stringBuilder = new StringBuilder();

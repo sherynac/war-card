@@ -1,8 +1,8 @@
 /**
+ * Represents the ranks of playing cards and their corresponding numerical values.
+ *
  * @author Sheryn Cagulada
  * @version October 30, 2026
- *
- * Contains the Suit enum for getting the value of each suit and method for parsing
  */
 
 package com.svi.warcard.enums;
@@ -15,11 +15,17 @@ public enum Suit {
 
     private final int value;
 
+    /**
+     * Constructs a suit with its corresponding value
+     *
+     * @param value numerical value assigned to the suit
+     */
     Suit(int value) {
         this.value = value;
     }
 
     /**
+     * Returns numerical value of suit
      *
      * @return value of Suit
      */
@@ -28,9 +34,11 @@ public enum Suit {
     }
 
     /**
-     * Parse the Suit based on input; Throws Exception if it does not exist
-     * @param input
-     * @return Suit
+     * Parse a String to its corresponding Suit
+     *
+     * @param input input the string representation of the suit
+     * @return the corresponding Suit
+     * @throws IllegalArgumentException if the input does not match any suit
      */
     public static Suit parse(String input) {
         for (Suit suit : values()) {
