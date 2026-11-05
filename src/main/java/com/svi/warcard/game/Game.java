@@ -149,7 +149,7 @@ public class Game {
             try {
                 System.out.print("\nEnter number of shuffles (1-100): ");
                 shuffleCount = Integer.parseInt(scanner.nextLine().trim());
-                if (shuffleCount <= 0 || shuffleCount > 100) {
+                if (shuffleCount < 1 || shuffleCount > 100) {
                     System.out.println("Number of shuffles must be in between 1 and 100. "
                             + "Kindly re-enter a number.");
                     continue;
