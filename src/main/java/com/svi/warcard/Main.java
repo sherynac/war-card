@@ -18,15 +18,21 @@ public class Main {
      * Starts the game and manages the replay loop.
      */
     static void main() {
-        boolean willPlayAgain = true;
-        Scanner scanner = new Scanner(System.in);
+        try {
+            boolean willPlayAgain = true;
+            Scanner scanner = new Scanner(System.in);
 
-        while (willPlayAgain) {
-            Game game = new Game(scanner);
-            game.run();
-            willPlayAgain = playAgain(scanner);
+            while (willPlayAgain) {
+                Game game = new Game(scanner);
+                game.run();
+                willPlayAgain = playAgain(scanner);
+            }
+            scanner.close();
+        } catch (Exception e) {
+            System.out.println("\nProgram has encountered an error: " + e.getMessage() );
+            System.out.println("Kindly rerun the program.");
         }
-        scanner.close();
+
     }
 
     /**

@@ -35,6 +35,65 @@
     <commands />
     <urls />
   </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="5.531385130606159E-104" />
+      <entry key="MS500" value="3.402655609117521E-21" />
+      <entry key="S2" value="1.7434308009852893E-5" />
+      <entry key="S5" value="0.034727415315340744" />
+      <entry key="S10" value="0.4787184082443886" />
+      <entry key="S30" value="3.1558034543259508" />
+      <entry key="S60" value="9.008852970037454" />
+      <entry key="M2" value="25.500758444643164" />
+      <entry key="M5" value="56.64915938201562" />
+      <entry key="M10" value="75.63436427512433" />
+      <entry key="M15" value="83.4725224325719" />
+      <entry key="M30" value="92.22324640268529" />
+      <entry key="H1" value="96.9757132687728" />
+      <entry key="H2" value="99.45286903085787" />
+      <entry key="H4" value="100.7175578638375" />
+      <entry key="D1" value="101.78501559663623" />
+      <entry key="W1" value="101.96925732900345" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.000000206790063" />
+      <entry key="S5" value="1.0031583665378894" />
+      <entry key="S10" value="1.079645782579732" />
+      <entry key="S30" value="1.7711653101470723" />
+      <entry key="S60" value="2.5787711894343692" />
+      <entry key="M2" value="3.5676732201631562" />
+      <entry key="M5" value="4.96079588392284" />
+      <entry key="M10" value="5.797001107223309" />
+      <entry key="M15" value="6.148783436506543" />
+      <entry key="M30" value="6.547216466367684" />
+      <entry key="H1" value="6.76628281632213" />
+      <entry key="H2" value="6.8812387837369515" />
+      <entry key="H4" value="6.940134506730344" />
+      <entry key="D1" value="6.989954273928954" />
+      <entry key="W1" value="6.998563216926218" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="6.053260253608334E-4" />
+      <entry key="MS500" value="0.22719452911213" />
+      <entry key="S2" value="0.6904104183873073" />
+      <entry key="S5" value="0.8960464096019422" />
+      <entry key="S10" value="1.4587353547791226" />
+      <entry key="S30" value="4.839079719212194" />
+      <entry key="S60" value="11.492694963379797" />
+      <entry key="M2" value="28.967165382099022" />
+      <entry key="M5" value="61.53634279248307" />
+      <entry key="M10" value="81.38550365842298" />
+      <entry key="M15" value="89.58833583725755" />
+      <entry key="M30" value="98.75266807207754" />
+      <entry key="H1" value="103.73274849512718" />
+      <entry key="H2" value="106.32939346454273" />
+      <entry key="H4" value="107.65531217011896" />
+      <entry key="D1" value="108.77456993918403" />
+      <entry key="W1" value="108.96776333330304" />
+    </decayedShown>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1,
   &quot;fromUser&quot;: false
@@ -44,41 +103,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Maven.war-card-game [clean].executor": "Run",
-    "Maven.war-card-game [org.apache.maven.plugins:maven-jar-plugin:3.5.1:jar].executor": "Run",
-    "Maven.war-card-game [package].executor": "Run",
-    "Maven.war-card-game [validate].executor": "Run",
-    "Maven.war-card-maven [clean].executor": "Run",
-    "Maven.war-card-maven [compile].executor": "Run",
-    "Maven.war-card-maven [package].executor": "Run",
-    "Maven.war-card-maven [test].executor": "Run",
-    "Maven.war-card-maven [verify].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/sheryn.cagulada/IdeaProjects/war-card-maven",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.jshint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.jshint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/sheryn.cagulada/IdeaProjects/war-card-maven/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "vcs.Git"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.war-card-game [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.war-card-game [org.apache.maven.plugins:maven-jar-plugin:3.5.1:jar].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.war-card-game [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.war-card-game [validate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.war-card-maven [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.war-card-maven [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.war-card-maven [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.war-card-maven [test].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.war-card-maven [verify].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sheryn.cagulada/IdeaProjects/war-card-maven&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/sheryn.cagulada/IdeaProjects/war-card-maven/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\sheryn.cagulada\IdeaProjects\war-card-maven\src\main\resources" />

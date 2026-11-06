@@ -60,6 +60,10 @@ public class Dealer {
             }
         }
 
+        if (cards.isEmpty()) {
+            throw new IllegalArgumentException("\nInput file did not contain any data.");
+        }
+
         if (cards.size() != 52) {
             throw new IllegalArgumentException("\nStandard deck should have exactly 52 cards. Read file had "
                             + cards.size() + " cards.");
