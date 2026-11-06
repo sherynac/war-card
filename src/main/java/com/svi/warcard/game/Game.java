@@ -1,10 +1,3 @@
-/**
- * Manages overall game flow including game setup, round creation,
- * player elimination and winner declaration
- *
- * @author Sheryn Cagulada
- * @version October 30, 2026
- */
 package com.svi.warcard.game;
 
 import com.svi.warcard.utils.ColorHelper;
@@ -19,6 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Manages overall game flow including game setup, round creation,
+ * player elimination and winner declaration
+ *
+ * @author Sheryn Cagulada
+ * @version October 30, 2026
+ */
 public class Game {
     private final Dealer dealer;
     private final List<Player> players;

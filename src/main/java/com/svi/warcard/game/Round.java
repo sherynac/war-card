@@ -1,9 +1,3 @@
-/**
- * Manages individual game rounds including card draws, winner determination and collection of round pot
- *
- * @author Sheryn Cagulada
- * @version October 30, 2026
- */
 package com.svi.warcard.game;
 
 import com.svi.warcard.utils.ColorHelper;
@@ -13,6 +7,12 @@ import com.svi.warcard.models.Player;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Manages individual game rounds including card draws, winner determination and collection of round pot
+ *
+ * @author Sheryn Cagulada
+ * @version October 30, 2026
+ */
 public class Round {
     private final List<Card> pot = new ArrayList<>();
     private final int roundNum;

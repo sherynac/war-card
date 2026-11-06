@@ -1,10 +1,3 @@
-/**
- * Represents a playing card consisting of a suit and a rank.
- * Provides card parsing, comparison, and formatted string representation.
- *
- * @author Sheryn Cagulada
- * @version October 30, 2026
- */
 package com.svi.warcard.models;
 
 import com.svi.warcard.utils.ColorHelper;
@@ -13,6 +6,13 @@ import com.svi.warcard.enums.Suit;
 
 import java.util.StringTokenizer;
 
+/**
+ * Represents a playing card consisting of a suit and a rank.
+ * Provides card parsing, comparison, and formatted string representation.
+ *
+ * @author Sheryn Cagulada
+ * @version October 30, 2026
+ */
 public record Card(Suit suit, Rank rank) implements Comparable<Card> {
 
     /**

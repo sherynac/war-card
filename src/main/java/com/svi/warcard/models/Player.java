@@ -1,15 +1,14 @@
+package com.svi.warcard.models;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Represents a player in the card game and manages their deck of cards.
  *
  * @author Sheryn Cagulada
  * @version October 30, 2026
  */
-
-package com.svi.warcard.models;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class Player {
     private final int number;
     private final List<Card> cardsOwned;

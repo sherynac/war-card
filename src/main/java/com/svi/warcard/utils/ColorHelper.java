@@ -1,14 +1,13 @@
+package com.svi.warcard.utils;
+
+import java.util.Map;
+
 /**
  * Utility for adding color to console display
  *
  * @author Sheryn Ann Cagulada
  * @version October 30, 2026
  */
-
-package com.svi.warcard.utils;
-
-import java.util.Map;
-
 public final class ColorHelper {
     private static final Map<String, String> ANSI_COLORS = Map.of(
             "RED", "\u001B[31m",

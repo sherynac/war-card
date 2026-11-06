@@ -1,9 +1,3 @@
-/**
- * Manages the card deck including loading, shuffling, displaying and dealing cards to players
- *
- * @author Sheryn Cagulada
- * @version October 30, 2026
- */
 package com.svi.warcard.game;
 
 import com.svi.warcard.utils.ColorHelper;
@@ -15,6 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+/**
+ * Manages the card deck including loading, shuffling, displaying and dealing cards to players
+ *
+ * @author Sheryn Cagulada
+ * @version October 30, 2026
+ */
 public class Dealer {
     private List<Card> cards;
 

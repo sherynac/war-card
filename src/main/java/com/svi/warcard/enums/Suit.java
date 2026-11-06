@@ -1,12 +1,11 @@
+package com.svi.warcard.enums;
+
 /**
  * Represents the ranks of playing cards and their corresponding numerical values.
  *
  * @author Sheryn Cagulada
  * @version October 30, 2026
  */
-
-package com.svi.warcard.enums;
-
 public enum Suit {
     D(4),
     H(3),

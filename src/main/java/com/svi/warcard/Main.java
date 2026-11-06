@@ -1,3 +1,9 @@
+package com.svi.warcard;
+
+import com.svi.warcard.game.Game;
+
+import java.util.Scanner;
+
 /**
  * Serves as the entry point of the War Card game application.
  * Manages game initialization and replay prompts.
@@ -5,13 +11,6 @@
  * @author Sheryn Cagulada
  * @version October 30, 2026
  */
-
-package com.svi.warcard;
-
-import com.svi.warcard.game.Game;
-
-import java.util.Scanner;
-
 public class Main {
 
     /**
