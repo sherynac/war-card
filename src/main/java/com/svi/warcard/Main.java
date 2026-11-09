@@ -44,9 +44,9 @@ public class Main {
         while (true) {
             System.out.print("\nPlay Again (y/n): ");
             String input = scanner.nextLine().trim();
-            if (input.equalsIgnoreCase("y")) {
+            if (input.equalsIgnoreCase("y") || input.equalsIgnoreCase("yes")) {
                 return true;
-            } else if (input.equalsIgnoreCase("n")) {
+            } else if (input.equalsIgnoreCase("n") || input.equalsIgnoreCase("no")) {
                 System.out.println("\n!! Thank you for playing War Card !!");
                 return false;
             } else {
